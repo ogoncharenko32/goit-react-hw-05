@@ -24,7 +24,6 @@ const MovieCast = () => {
       try {
         const data = await getCast(id);
         setMovieCast(data);
-        console.log(data);
       } catch (error) {
         console.log(error.message);
       } finally {
