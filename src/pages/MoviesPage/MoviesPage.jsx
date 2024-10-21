@@ -14,7 +14,6 @@ const MoviesPage = () => {
   const searchValue = searchParams.get('query');
 
   const onSearch = query => {
-    console.log(query);
     setSearchParams({ query });
   };
 
