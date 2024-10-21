@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 10px 20 px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    gap:8px;
+    padding: 5px 10px;
+    width: 400px;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    min-width: 200px;
+    padding: 10px 15px;
+}

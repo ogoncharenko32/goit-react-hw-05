@@ -1,0 +1,21 @@
+.wrapper {
+    padding: 10px 20px;
+}
+
+.credits {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    border-bottom: 1px solid grey;
+    width: 200px;
+    padding: 4px 6px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
