@@ -46,7 +46,7 @@ const MovieReviews = () => {
           }}
         />
       )}
-      {movieReviews && (
+      {movieReviews && movieReviews.results.length > 0 ? (
         <div className={clsx(css.wrapper)}>
           {movieReviews.results.map(review => (
             <li className={clsx(css.review)} key={nanoid()}>
@@ -57,6 +57,8 @@ const MovieReviews = () => {
             </li>
           ))}
         </div>
+      ) : (
+        <p> No reviews found </p>
       )}
     </div>
   );

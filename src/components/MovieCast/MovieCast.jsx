@@ -24,6 +24,7 @@ const MovieCast = () => {
       try {
         const data = await getCast(id);
         setMovieCast(data);
+        console.log(data.cast.length);
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -48,7 +49,7 @@ const MovieCast = () => {
           }}
         />
       )}
-      {movieCast && (
+      {movieCast && movieCast.cast.length > 0 ? (
         <div>
           <h2>Cast</h2>
           <div className={clsx(css.credits)}>
@@ -69,24 +70,30 @@ const MovieCast = () => {
             ))}
           </div>
           <h2>Crew</h2>
-          <div className={clsx(css.credits)}>
-            {movieCast.crew.map(crew => (
-              <li className={clsx(css.card)} key={nanoid()}>
-                <img
-                  src={crew.profile_path ? `https://image.tmdb.org/t/p/w500${crew.profile_path}` : `${defaultImg}`}
-                  alt={crew.name}
-                  width={100}
-                />
-                <div>
-                  <h3>Job:</h3>
-                  <p>{crew.job}</p>
-                  <h3>Name:</h3>
-                  <p>{crew.original_name}</p>
-                </div>
-              </li>
-            ))}
-          </div>
+          {movieCast.crew.length > 0 ? (
+            <div className={clsx(css.credits)}>
+              {movieCast.crew.map(crew => (
+                <li className={clsx(css.card)} key={nanoid()}>
+                  <img
+                    src={crew.profile_path ? `https://image.tmdb.org/t/p/w500${crew.profile_path}` : `${defaultImg}`}
+                    alt={crew.name}
+                    width={100}
+                  />
+                  <div>
+                    <h3>Job:</h3>
+                    <p>{crew.job}</p>
+                    <h3>Name:</h3>
+                    <p>{crew.original_name}</p>
+                  </div>
+                </li>
+              ))}
+            </div>
+          ) : (
+            <p>No crew found</p>
+          )}
         </div>
+      ) : (
+        <p>No credits found</p>
       )}
     </div>
   );
